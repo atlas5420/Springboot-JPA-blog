@@ -35,7 +35,7 @@ public class User {
 	@Column(nullable = false, length = 30, unique = true) //null값이 올수없고 길이는 30
 	private String username;
 	  
-	@Column(nullable = false, length = 50) // 해쉬로 변경 => 암호화
+	@Column(nullable = false, length = 100) // 해쉬로 변경 => 암호화
 	private String password;
 	  
 	@Column(nullable = false, length = 50)

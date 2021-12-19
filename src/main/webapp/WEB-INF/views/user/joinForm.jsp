@@ -3,7 +3,7 @@
 
 <%@ include file="../layout/header.jsp"%>
 <div class="container">
-	<form action="/user/join" method="post">
+	<form action="/user/joinProc" method="post">
 		<div class="form-group">
 			<label for="username">Username:</label> <input type="text"
 				class="form-control" placeholder="Enter Username" id="username">
@@ -24,5 +24,4 @@
 </div>
 
 <%@ include file="../layout/footer.jsp"%>
-<script src="/blog/js/user.js"></script>
-
+<script src="/js/user.js"></script>

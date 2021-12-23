@@ -9,6 +9,9 @@ let index = {
 		$("#btn-update").on("click", ()=>{ // function(){} 대신 ()=>{}사용, this를 바인딩하기 위해
 			this.update();
 		});
+		$("#btn-reply-save").on("click", ()=>{ // function(){} 대신 ()=>{}사용, this를 바인딩하기 위해
+			this.replysave();
+		});
 
 	},
 	
@@ -67,7 +70,29 @@ let index = {
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
-	}
+	},
+	
+	replysave: function(){
+		let data = {
+			userId: $("#userId").val(),
+			boardId: $("#boardId").val(),
+			content: $("#reply-content").val()
+		};
+		let boardId = $("#boardId").val();
+		
+		$.ajax({
+			type: "POST",
+			url: `/api/board/${boardId}/reply`,
+			data: JSON.stringify(data), 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json" 
+		}).done(function(resp){
+			alert("댓글등록 완료");
+			location.href = `/board/${boardId}`;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	},
 
 }
 
